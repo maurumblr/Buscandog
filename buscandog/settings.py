@@ -134,7 +134,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'buscandog/static'),)
 
-MEDIA_URL = '/media/'
+MEDIA_ROOT= os.path.join(BASE_DIR, 'media') #location on the file system
+MEDIA_URL = '/media/' #
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4' #Indicamos con que version de bootstrap queremos trabajar
 

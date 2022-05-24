@@ -13,7 +13,7 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Cuenta creada exitosamente')
-            return redirect('blog-home')        
+            return redirect('login')        
 
     else:
         form = UserRegisterForm()
