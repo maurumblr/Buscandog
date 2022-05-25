@@ -1,6 +1,8 @@
 from distutils.command.upload import upload
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
+
 
 #User app models
 class Profile(models.Model):
@@ -10,3 +12,11 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
+
+    def save(self):
+        super().save()
+
+        img = Image.open(self.image.path)                
+        output_size = (100, 100)
+        img.thumbnail(output_size)
+        img.save(self.image.path)

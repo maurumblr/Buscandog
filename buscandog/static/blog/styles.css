@@ -64,11 +64,22 @@ body{
     border-bottom: solid rgb(224, 222, 222) 1px;
 }
 
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
 /* REGISTER */
 .register-form{
     margin: 20px 0;
     display: flexbox;
     width: 500px;
+}
+
+.btn-profile-update{
+    margin: 10px 0;
 }
 
 /* ESPACIO */
