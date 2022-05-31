@@ -64,6 +64,16 @@ body{
     border-bottom: solid rgb(224, 222, 222) 1px;
 }
 
+.article-title {
+    color: #444444;
+    text-decoration: none;
+  }
+  
+  a.article-title:hover {
+    color: #428bca;    
+  }
+  
+
 .account-img {
     height: 125px;
     width: 125px;
@@ -80,6 +90,11 @@ body{
 
 .btn-profile-update{
     margin: 10px 0;
+}
+
+.mar{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* ESPACIO */

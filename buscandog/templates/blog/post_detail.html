@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}    
+    <div class="conteiner_1">
+        <img class="rounded-circle article-img" src="{{ object.creator.profile.image.url }}" alt="">
+        <h2> {{object.title}} </h2>
+        <p> {{object.content}} </p>        
+        <p> {{object.date}} </p>
+    </div>    
+    {% if user == object.creator %}
+        <a class="btn btn-outline-secondary mar" href="{% url 'blog-update-post' object.id %}">Update</a>
+        <a class="btn btn-outline-danger mar" href="{% url 'blog-delete-post' object.id %}">Delete</a>
+    {% endif %}
+{% endblock %}
