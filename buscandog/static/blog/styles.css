@@ -55,13 +55,33 @@ body{
     margin: 8px 0;
 }
 
-.conteiner_1{        
-    border: solid rgb(224, 222, 222) 1px;
-    margin: 20px auto;
+.grilla{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
 }
 
-.conteiner_1 h2{    
-    border-bottom: solid rgb(224, 222, 222) 1px;
+.conteiner-2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: solid 1px rgb(241, 241, 241);
+    margin-top: 20px;
+}
+
+.conteiner-2_encabezado{
+    display: inline-flex;    
+    width: 100%;
+    border-bottom: solid 1px rgb(241, 241, 241);
+}
+
+.conteiner-2_encabezado img{
+    margin: auto 5px;
+}
+
+.conteiner-2_encabezado h4{
+    margin: auto;
+    font-size: medium;
+    margin-left: 10px;
+    color: #4b3737;
 }
 
 .article-title {

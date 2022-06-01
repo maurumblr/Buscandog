@@ -2,19 +2,15 @@
 {% load static %}
 
 {% block content %}
-    <div class="grilla">    
-        {% for post in Posts %}
-            <div class="conteiner-2">
-                <div class="conteiner-2_encabezado">
-                    <img class="rounded-circle article-img" src="{{ post.creator.profile.image.url }}" alt="">
-                    <h4><a class="article-title" href="{% url 'user-posts' post.creator %}">{{ post.creator.username }}</a></h4>
-                </div>
-                <h2><a class="article-title" href="{% url 'blog-detail-post' post.id %}"> {{post.title}} </a></h2>
-                <p> {{post.content}} </p>        
-                <p> {{post.date}} </p>
-            </div>
-        {% endfor %}
+<h1 class="mb-3" >Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+    {% for post in Posts %}
+    <div class="conteiner_1">
+        <img class="rounded-circle article-img" src="{{ post.creator.profile.image.url }}" alt="">
+        <h2><a class="article-title" href="{% url 'blog-detail-post' post.id %}"> {{post.title}} </a></h2>
+        <p> {{post.content}} </p>        
+        <p> {{post.date}} </p>
     </div>
+    {% endfor %}
     {% if is_paginated %}
         <a class="btn btn-outline-info mb-4" href="?page=1"><<</a>
         {% if page_obj.has_previous %}                   
