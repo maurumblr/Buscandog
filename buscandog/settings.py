@@ -12,21 +12,31 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+#ENVIRON INIT
+
+env = environ.Env()
+environ.Env.read_env()
+  
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o40(^7f1j2sj0pr@_9vsgc^cgo+_0e4yctcpb4d3crync6(2$7'
+SECRET_KEY = env('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = []
+
+
+ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS', default=[]))
 
 
 # Application definition
@@ -42,6 +52,7 @@ INSTALLED_APPS = [
 
     #Third party apps
     'crispy_forms',
+    'debug_toolbar',
 
     #My apps
     'blog.apps.BlogConfig',
@@ -56,6 +67,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware', #debug-toolbar line
+]
+
+INTERNAL_IPS = [    
+    '127.0.0.1',     
 ]
 
 ROOT_URLCONF = 'buscandog.urls'
@@ -86,11 +102,11 @@ WSGI_APPLICATION = 'buscandog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Proyecto01',
-        'USER' : 'postgres',
-        'PASSWORD' : '123qwe',
-        'HOST' : 'localhost',
-        'PORT' : '',
+        'NAME': env.str('POSTGRES_DB'),
+        'USER' : env.str('POSTGRES_USER'),
+        'PASSWORD' : env.str('POSTGRES_PASSWORD'),
+        'HOST' : env.str('DB_HOST'),
+        'PORT' : env.int('DB_PORT'),
     }
 }
 
