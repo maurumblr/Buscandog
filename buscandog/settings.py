@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     #Third party apps
     'crispy_forms',
     'debug_toolbar',
+    'storages',
 
     #My apps
     'blog.apps.BlogConfig',
@@ -163,3 +164,13 @@ LOGIN_URL = 'login'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AWS_ACCESS_KEY_ID = env.str('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env.str('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env.str('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME='sa-east-1'
+AWS_S3_ADDRESSING_STYLE = 'virtual'
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_S3_FILE_OVERWRITE = False #If differents users upload files with same name, not override
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

@@ -33,7 +33,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'image1', 'image2', 'image3']
     template_name = 'blog/post_create_form.html'
 
     def form_valid(self, form):
@@ -42,7 +42,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'image1', 'image2', 'image3']
     template_name = 'blog/post_update_form.html'
 
     def test_func(self):

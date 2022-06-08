@@ -1,17 +1,21 @@
 {% extends 'blog/base.html' %}
 {% load crispy_forms_tags %}
 
-{% block content %}      
-    <div class="register-form">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Update Post</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info mar" type="submit" >Update</button>                
-            </div>
-        </form>
-    </div>
+{% block content %}
+<main class="grilla">
+    <section class="align_grid">
+        <div class="register-form">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Update Post</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info mar" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
 {% endblock %}
