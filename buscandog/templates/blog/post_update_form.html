@@ -5,7 +5,7 @@
 <main class="grilla">
     <section class="align_grid">
         <div class="register-form">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data"> <!--si no agregamos el enctype, las imagenes no se nos guardan en el back.-->
                 {% csrf_token %}
                 <fieldset class="form-group">
                     <legend class="border-bottom mb-4">Update Post</legend>

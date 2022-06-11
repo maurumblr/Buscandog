@@ -137,7 +137,7 @@ body{
 .content_img_grid{
     display: grid;
     grid-template-columns: repeat(3, 33%);    
-    margin: 7px auto;
+    margin: 7px auto;    
 }
 
 .content_img_grid img{
@@ -145,7 +145,9 @@ body{
     padding: 0;        
 }
 
-
+.content_img_grid a{
+    text-align: center;
+}
 
 .paginator{
     display: flex;
@@ -174,8 +176,7 @@ body{
 .account-img1 {
     height: 200px;
     width: 200px;
-    margin-right: 20px;
-    margin-bottom: 16px;
+    margin: auto;
 }
   
 /* REGISTER */
