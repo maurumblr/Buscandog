@@ -1,10 +1,10 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/layout.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}      
-    <div class="grilla">
-        <div class="register-form align_grid">
-            <form method="POST">
+    <main>
+        <div class="register-form">
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <fieldset class="form-group">
                     <legend class="border-bottom mb-4">New Post</legend>
@@ -15,5 +15,5 @@
                 </div>
             </form>
         </div>
-    </div>
+    </main>
 {% endblock %}

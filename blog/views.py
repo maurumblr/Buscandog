@@ -1,8 +1,12 @@
+#Django
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
+
+#Local
+from .models import Post
+from buscandog.settings import BASE_DIR
 
 # Create your views here.
 
@@ -12,6 +16,7 @@ class PostListView(ListView):
     context_object_name = 'Posts'  #With this variable we set all the Post.objects.all() to 'Posts' so we can loop in the html. <for post in Posts>
     ordering = ['-date']  #We order posts by field 'date' desc
     paginate_by: int = 9
+    template_name: str = 'blog/index.html'
 
     #the template name by convention is <app>/<model>_<viewtype>.html ------> blog/post_list.html
 

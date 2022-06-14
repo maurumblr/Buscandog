@@ -1,4 +1,7 @@
+#Django
 from django.urls import path
+
+#Local Project
 from . import views
 
 urlpatterns = [

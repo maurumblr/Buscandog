@@ -1,0 +1,47 @@
+{% extends 'blog/layout.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div class="align_grid">
+        <h1 class="mb-3" >Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+        {% for post in Posts %}
+            <article>
+                <div class="article-header">
+                    <img class="article-header-img" src="{{ post.creator.profile.image.url }}" alt="">
+                    <h4 id="article-header-author-account"><a href="{% url 'user-posts' post.creator %}">{{ post.creator.username }}</a></h4>
+                    <p> {{post.date}} </p>
+                </div>
+                <div class="article-content">
+                    <h2><a class="article-content-title" href="{% url 'blog-detail-post' post.id %}"> {{post.title}} </a></h2>
+                    <p class="article-content-p"> {{post.content}} </p>
+                    <div class="article-content-img-grid">    
+                        {% if post.image1 %}         
+                            <a href="{{post.image1.url}}" target="_blank" ><img class="article-content-img" src="{{post.image1.url}}" alt=""></a>
+                        {% endif %}
+                        {% if post.image2 %}         
+                            <a href="{{post.image2.url}}" target="_blank"><img class="article-content-img" src="{{post.image2.url}}" alt=""></a>
+                        {% endif %}
+                        {% if post.image3 %}         
+                            <a href="{{post.image3.url}}" target="_blank"><img class="article-content-img" src="{{post.image3.url}}" alt=""></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+        
+        <section class="content-paginator">
+            {% if is_paginated %}
+                <a class="btn btn-outline-info mb-4" href="?page=1"> << </a>
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                        {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2'%}
+                            <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                        {% endif %}
+                    {% endfor %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">>></a>
+            {% endif %}
+        </section>
+    </main>
+{% endblock %}

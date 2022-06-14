@@ -1,0 +1,35 @@
+{% extends 'blog/layout.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <article>
+            <div class="article-header">
+                <img class="article-header-img" src="{{ post.creator.profile.image.url }}" alt="">
+                <h4 id="article-header-author-account"><a href="{% url 'user-posts' post.creator %}">{{ post.creator.username }}</a></h4>
+                <p> {{post.date}} </p>
+            </div>
+            <div class="article-content">
+                <h2><a class="article-content-title" href="{% url 'blog-detail-post' post.id %}"> {{post.title}} </a></h2>
+                <p class="article-content-p"> {{post.content}} </p>
+                <div class="article-content-img-grid">    
+                    {% if post.image1 %}         
+                        <a href="{{post.image1.url}}" target="_blank" ><img class="article-content-img" src="{{post.image1.url}}" alt=""></a>
+                    {% endif %}
+                    {% if post.image2 %}         
+                        <a href="{{post.image2.url}}" target="_blank"><img class="article-content-img" src="{{post.image2.url}}" alt=""></a>
+                    {% endif %}
+                    {% if post.image3 %}         
+                        <a href="{{post.image3.url}}" target="_blank"><img class="article-content-img" src="{{post.image3.url}}" alt=""></a>
+                    {% endif %}
+                </div>
+                <div class="article-content-btn">
+                    {% if user == object.creator %}
+                        <a class="btn btn-outline-secondary" href="{% url 'blog-update-post' object.id %}">Update</a>
+                        <a class="btn btn-outline-danger" href="{% url 'blog-delete-post' object.id %}">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+        </article>
+    </main>
+{% endblock %}
