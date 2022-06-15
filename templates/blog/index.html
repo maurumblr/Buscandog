@@ -17,9 +17,11 @@
                         {% if post.image1 %}         
                             <a href="{{post.image1.url}}" target="_blank" ><img class="article-content-img" src="{{post.image1.url}}" alt=""></a>
                         {% endif %}
-                        {% if post.image2 %}         
-                            <a href="{{post.image2.url}}" target="_blank"><img class="article-content-img" src="{{post.image2.url}}" alt=""></a>
+
+                        {% if post.image2 %}
+                            <a href="{{post.image2.url}}" target="_blank"><img class="article-content-img" src="{{ post.image2.url }}" alt=""></a>
                         {% endif %}
+
                         {% if post.image3 %}         
                             <a href="{{post.image3.url}}" target="_blank"><img class="article-content-img" src="{{post.image3.url}}" alt=""></a>
                         {% endif %}
@@ -32,12 +34,12 @@
                             {% endif %}
                           </div>
                           <div class="carousel-item">
-                            {% if post.image1 %} 
+                            {% if post.image2 %} 
                             <img class="article-content-img" src="{{post.image2.url}}" class="d-block w-100" alt="...">
                             {% endif %}
                           </div>
                           <div class="carousel-item">
-                            {% if post.image1 %} 
+                            {% if post.image3 %} 
                             <img class="article-content-img" src="{{post.image3.url}}" class="d-block w-100" alt="...">
                             {% endif %}
                           </div>
