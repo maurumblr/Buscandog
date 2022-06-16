@@ -56,7 +56,14 @@
                         </button>
                       </div>
                 </div>
+                <div class="article-content-btn">
+                    {% if user == object.creator %}
+                        <a class="btn btn-outline-secondary" href="{% url 'blog-update-post' object.id %}">Update</a>
+                        <a class="btn btn-outline-danger" href="{% url 'blog-delete-post' object.id %}">Delete</a>
+                    {% endif %}
+                </div>
             </div>
+
         </article>
     </main>
 {% endblock %}

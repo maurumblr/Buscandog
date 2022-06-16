@@ -5,16 +5,22 @@
     box-sizing: border-box;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 
 body{    
     background-color: #ffffff;
     font-family: 'Work Sans', sans-serif;    
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 
 .grid-container{
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
 }
 
 
@@ -29,6 +35,7 @@ header{
     grid-column: 1 / -1;        
     /* width: max-content; */
 }
+
 
 
 #header-title{
@@ -57,6 +64,7 @@ header{
 
 }
 
+
 .header-menu-items{
     display: flex;    
     list-style: none;
@@ -70,6 +78,7 @@ header{
     border-radius: 15px;
 }
 
+
 .header-menu-items li a{
     text-decoration: none;
     display: block;
@@ -79,12 +88,11 @@ header{
     font-weight: bold;
 }
 
+
 .header-menu-items li:hover{
     background-color: #999999;
     transition: .4s;
 }
-
-
 
 
 .nav-toggle{
@@ -96,43 +104,6 @@ header{
 
     display: none;
 }
-
-
-
-/* .header-links ul li{
-    display: inline-flex;
-    list-style: none;
-    margin: 0;
-    margin-bottom: 10px;
-    padding: 0;
-}
-
-
-.header-links li{
-    margin-right: 30px;
-    font-size: 20px;
-}
-
-
-.header-links a{
-    text-decoration: none;
-    color:  #ffffff ;
-}
-
-
-.header-links a:hover{
-    color: #17a2b8;
-}
-
-
-.header-general-links{
-    margin-left: 20%;
-}
-
-
-.header-user-links{
-    margin-left: 40%;
-} */
 
 
 /* CONTENIDO */
@@ -224,8 +195,14 @@ article{
     margin-bottom: 10px;
 }
 
+
 #carouselExampleControls{
     display: none;
+}
+
+
+.slide{
+    z-index: 0;
 }
 
 
@@ -269,6 +246,7 @@ article{
     width: 500px;
 }
 
+
 .btn-profile-update{
     margin: 10px 0;
 }
@@ -287,7 +265,9 @@ footer{
     background-color: #282d35;        
     margin-top: 10px;
     width: 100%;
+    bottom: 0;
 }
+
 
 .footer ul{
     list-style: none;
@@ -295,15 +275,18 @@ footer{
     padding: 0;
 }
 
+
 .footer ul li{
     margin: 20px 0;
 }
+
 
 .second_links_footer{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 
 /* GENERAL */
 .center{
@@ -317,6 +300,7 @@ footer{
     margin-top: 10px;
     margin-bottom: 10px;    
 }
+
 
 .mar0{
     margin: 0;
@@ -397,11 +381,11 @@ footer{
         width: 100%;
         align-items: center;        
         padding-left: 0;
-        /* height: calc(100% - 50px);
-        overflow-y: auto; */
-        
         left: 100%;
         transition: left;
+        height: 30vh;
+
+        display: none;
     }
     
     .header-menu-items li{
@@ -418,6 +402,8 @@ footer{
     
     .header-menu-items_visible{
         left: 0;
+        display: flex;
+        z-index: 1;
     }
     
     .article-content-img-full{
