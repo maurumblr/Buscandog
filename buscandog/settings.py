@@ -37,7 +37,7 @@ DEBUG = env.bool('DEBUG', default=False)
 
 
 
-ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS', default=[]))
+ALLOWED_HOSTS = ['127.0.0.1','localhost','buscandog.herokuapp.com']
 
 
 # Application definition
