@@ -53,8 +53,7 @@ INSTALLED_APPS = [
 
     #Third party apps
     'crispy_forms',
-    'debug_toolbar',
-    'storages',
+    'debug_toolbar',    
 
     #My apps
     'blog.apps.BlogConfig',
@@ -70,7 +69,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware', #debug-toolbar line
-    "django.middleware.security.SecurityMiddleware",    
+    
 ]
 
 INTERNAL_IPS = [    
@@ -151,7 +150,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 STATICFILES_DIRS = BASE_DIR, 'static' 
+
 STATIC_URL = '/static/'
 
 
