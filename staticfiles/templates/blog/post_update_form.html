@@ -1,0 +1,21 @@
+{% extends 'blog/layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="grilla">
+    <section class="align_grid">
+        <div class="register-form">
+            <form method="POST" enctype="multipart/form-data"> <!--si no agregamos el enctype, las imagenes no se nos guardan en el back.-->
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Update Post</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-info mart20" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}
