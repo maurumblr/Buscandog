@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import environ 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -69,8 +70,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware', #debug-toolbar line
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.security.SecurityMiddleware",    
 ]
 
 INTERNAL_IPS = [    
@@ -151,8 +151,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = BASE_DIR, 'buscandog/static'
-STATIC_URL = 'buscandog/static/'
+STATICFILES_DIRS = BASE_DIR, 'static' 
+STATIC_URL = '/static/'
 
 
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media') #location on the file system
@@ -187,4 +187,4 @@ AWS_S3_FILE_OVERWRITE = False #If differents users upload files with same name, 
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+

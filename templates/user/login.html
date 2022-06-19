@@ -2,8 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<main class="grilla">
-    <section class="align_grid">
+    <main>        
         <div class="register-form">
             <form method="POST">
                 {% csrf_token %}
@@ -25,7 +24,6 @@
                     Need an account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
                 </small>
             </div>
-        </div>
-    </section>
-</main>
+        </div>        
+    </main>
 {% endblock %}

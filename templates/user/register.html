@@ -2,8 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<main class="grilla">
-    <section class="align_grid">
+    <main>    
         <div class="register-form">
             <form method="POST">
                 {% csrf_token %}
@@ -12,7 +11,7 @@
                     {{ form|crispy }}
                 </fieldset>
                 <div class="form-group">
-                    <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                    <button class="btn btn-outline-info marbt10" type="submit">Sign Up</button>
                 </div>
             </form>
             <div class="border-top pt-3">
@@ -20,7 +19,6 @@
                     Already have an account? <a class="ml-2" href="{% url 'login' %}">Sing In</a>
                 </small>
             </div>
-        </div>
-    </section>
-</main>
+        </div>    
+    </main>
 {% endblock %}

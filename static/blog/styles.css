@@ -46,6 +46,20 @@ header{
     color: #ffffff;
     font-size: 40px;
     width: max-content;    
+    text-decoration: none;    
+    font-weight: 900;
+}
+
+.header-link{
+    text-decoration: none;
+    color: #ffffff;    
+    font-weight: 900;
+}
+
+
+.header-link:hover{    
+    color: #999999;
+
 }
 
 
@@ -119,7 +133,7 @@ main{
 
 article{
     border: solid 1px #ffffff;
-    border-radius: 15px;
+    border-radius: 7px;
     margin-top: 20px;
     background-color: #ebeae8;    
 }
@@ -130,7 +144,7 @@ article{
     grid-template-columns: 12% 88%;
     grid-template-rows: 2;
     background-color: #2f333a;
-    border-radius:  15px;
+    border-radius:  7px;
 }
 
 
@@ -241,8 +255,7 @@ article{
 /* REGISTER */
 .register-form{    
     margin: 20px 0;
-    display: flexbox;
-    width: 500px;
+    display: flexbox;    
 }
 
 
@@ -300,6 +313,9 @@ footer{
     margin-bottom: 10px;    
 }
 
+.mart20{        
+    margin-top: 20px;
+}
 
 .mar0{
     margin: 0;
@@ -347,7 +363,7 @@ footer{
 @media screen and (max-width:794px) {
     
     main{
-        width: 98vw;
+        width: 95vw;
     }
 
     header{
@@ -382,7 +398,7 @@ footer{
         padding-left: 0;
         left: 100%;
         transition: left;
-        height: 30vh;
+        height: 35vh;
 
         display: none;
     }

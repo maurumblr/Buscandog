@@ -1,1 +1,1 @@
-web: guinicorn buscandog.wsgi
+web: gunicorn buscandog.wsgi
