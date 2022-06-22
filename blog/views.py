@@ -11,6 +11,11 @@ from buscandog.settings import BASE_DIR
 # Create your views here.
 
 
+def About(request):
+    return render(request, 'blog/about.html')
+
+
+
 class PostListView(ListView):
     model = Post
     context_object_name = 'Posts'  #With this variable we set all the Post.objects.all() to 'Posts' so we can loop in the html. <for post in Posts>
@@ -19,7 +24,6 @@ class PostListView(ListView):
     template_name: str = 'blog/index.html'
 
     #the template name by convention is <app>/<model>_<viewtype>.html ------> blog/post_list.html
-
 
 class UserPostListView(ListView):
     model = Post
@@ -56,7 +60,6 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         else:
             return False
-
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
