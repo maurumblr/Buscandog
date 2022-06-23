@@ -5,63 +5,68 @@
 
 <!-- HEADER -->
 
-{% block header %}
-<div class="grid-container">
-    <header>                
-        <nav class="header-menu menu_visible">
-            <h1 id="header-title"><label class="nav-logo"><img src="../../static/images/icono-buscandog.png" alt=""></label><a  class="header-link" href="{% url 'blog-home' %}">BUSCANDOG</a></h1>
-            <ul class="header-menu-items">
-                <li><a href="{% url 'blog-home' %}">Home</a></li>
-                <li><a href="#">About</a></li>
-                <!-- <li><a href="{% url 'about' %}">About</a></li> -->
-                {% if user.is_authenticated %}
-                    <li><a href="{% url 'blog-create-post' %}">New Post</a></li>
-                    <li><a href="{% url 'profile' %}">Profile</a></li>
-                    <li><a class="btn btn-danger" href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                    <li><a class="btn btn-outline-info" href="{% url 'register' %}">Register</a></li>
-                    <li><a class="btn btn-info" href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-            </ul>        
-            <button class="nav-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-{% endblock %}
+{% block body %}
+    <div class="grid-container">
 
-    <aside class="left-aside" >
-        {% block left-aside %} {% endblock %}
-    </aside>
-
-    {% block content %}
-    <main>
-        <!-- BODY -->
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-
-        {% block main %}
+        <!-- HEADER -->
+        {% block header %}
+            <header>                
+                <nav class="header-menu">
+                    <h1 class="header-title"><img class="nav-logo" src="../../static/images/icono-buscandog.png" alt=""><a class="header-link" href="{% url 'blog-home' %}">BUSCANDOG</a></h1>
+                    <ul class="header-menu-items">
+                        <li><a href="{% url 'blog-home' %}">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <!-- <li><a href="{% url 'about' %}">About</a></li> -->
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'blog-create-post' %}">New Post</a></li>
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+                            <li><a class="btn btn-danger" href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                            <li><a class="btn btn-outline-info" href="{% url 'register' %}">Register</a></li>
+                            <li><a class="btn btn-info" href="{% url 'login' %}">Login</a></li>
+                        {% endif %}
+                    </ul>        
+                    <button class="nav-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </nav>
+            </header>
         {% endblock %}
-    </main>
-    {% endblock %}
 
-    <aside right-aside>
-        {% block right-aside %} {% endblock %}
-    </aside>
+        <!-- CONTENT -->
+        {% block content %}
+            <aside class="left-aside" >
+                {% block left-aside %} {% endblock %}
+            </aside>
 
-    {% block footer %}
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="links">
-            <a href="https://twitter.com/BuscandogAr" target="_blank"><img src="../../static/images/icon-twitter.png" alt=""></a>
-            <a href="https://www.instagram.com/buscandog.ar/"><img src="../../static/images/icon-instagram.png" alt=""></a>
-        </div>        
-        <label for="">© 2022 Buscandog.</label>
-    </footer>
+            <main>
+                <!-- BODY -->
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                {% block main %}
+                {% endblock %}
+            </main>
+            
+            <aside right-aside>
+                {% block right-aside %} {% endblock %}
+            </aside>
+        {% endblock %}
+            
+        <!-- FOOTER -->
+        {% block footer %}
+            <footer>
+                <div class="links">
+                    <a href="https://twitter.com/BuscandogAr" target="_blank"><img src="../../static/images/icon-twitter.png" alt=""></a>
+                    <a href="https://www.instagram.com/buscandog.ar/"><img src="../../static/images/icon-instagram.png" alt=""></a>
+                </div>        
+                <label for="">© 2022 Buscandog.</label>
+            </footer>
+        {% endblock %}
+    </div>
 {% endblock %}
-</div>

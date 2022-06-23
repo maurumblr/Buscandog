@@ -1,76 +1,72 @@
 {% extends 'blog/layout.html' %}
 {% load social_share %}
 
-{% block content %}
-    <main>
-        <article>
-            <div class="article-header">
-                <img class="article-header-img" src="{{ post.creator.profile.image.url }}" alt="">
-                <h4 id="article-header-author-account"><a href="{% url 'user-posts' post.creator %}">{{ post.creator.username }}</a></h4>
-                <p> {{post.date}} </p>
-            </div>
-            <div class="article-content">
-                <h2><a class="article-content-title" href="{% url 'blog-detail-post' post.id %}"> {{post.title}} </a></h2>
-                <div class="contenido">
-                    {% if post.image1 or post.image2 or post.image3 %}
-                        <div class="article-content-p1">
-                            <p> {{post.content}} </p>
-                        </div>
-                        <div class="article-content-img">                        
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-                                <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    {% if post.image1 %} 
-                                        <div class="carousel-item active">
-                                            <a href="{{post.image1.url}}" target="_blank"><img class="article-content-img-car" src="{{post.image1.url}}" class="d-block w-100" alt="..."></a>
-                                        </div>
-                                    {% endif %}
-                                    {% if post.image2 %} 
-                                        <div class="carousel-item">
-                                            <a href="{{post.image2.url}}" target="_blank"><img class="article-content-img-car" src="{{post.image2.url}}" class="d-block w-100" alt="..."></a>
-                                        </div>
-                                    {% endif %}
-                                    {% if post.image3 %} 
-                                        <div class="carousel-item">
-                                            <a href="{{post.image3.url}}" target="_blank"><img class="article-content-img-car" src="{{post.image3.url}}" class="d-block w-100" alt="..."></a>
-                                        </div>
-                                    {% endif %}
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                                </button>
+{% block main %}    
+    <article>
+        <div class="article-header">
+            <img class="article-header-img" src="{{ post.creator.profile.image.url }}" alt="">
+            <h4 class="article-header-author-account"><a href="{% url 'user-posts' post.creator %}">{{ post.creator.username }}</a></h4>
+            <p> {{post.date}} </p>
+        </div>
+        <div class="article-content">
+            <h2><a class="article-content-title" href="{% url 'blog-detail-post' post.id %}"> {{post.title}} </a></h2>
+            <div class="contenido">
+                {% if post.image1 or post.image2 or post.image3 %}
+                    <div class="article-content-p1">
+                        <p> {{post.content}} </p>
+                    </div>
+                    <div class="article-content-img">                        
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                            <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
+                            <div class="carousel-inner">
+                                {% if post.image1 %} 
+                                    <div class="carousel-item active">
+                                        <a href="{{post.image1.url}}" target="_blank"><img class="article-content-img-car" src="{{post.image1.url}}" class="d-block w-100" alt="..."></a>
+                                    </div>
+                                {% endif %}
+                                {% if post.image2 %} 
+                                    <div class="carousel-item">
+                                        <a href="{{post.image2.url}}" target="_blank"><img class="article-content-img-car" src="{{post.image2.url}}" class="d-block w-100" alt="..."></a>
+                                    </div>
+                                {% endif %}
+                                {% if post.image3 %} 
+                                    <div class="carousel-item">
+                                        <a href="{{post.image3.url}}" target="_blank"><img class="article-content-img-car" src="{{post.image3.url}}" class="d-block w-100" alt="..."></a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
-                    {% else %}
-                        <div class="article-content-p2">
-                            <p> {{post.content}} </p>
-                        </div>
-                    {% endif %}
-                </div>
-                <div class="article-content-btn">
-                    {% if user == object.creator %}
-                        <a class="btn btn-outline-secondary" href="{% url 'blog-update-post' object.id %}">Update</a>
-                        <a class="btn btn-outline-danger" href="{% url 'blog-delete-post' object.id %}">Delete</a>
-                    {% endif %}
-                </div>
-                <div class="social-share">
-                    <label for="">¡Share!</label>
-                    {% post_to_facebook object_or_url '<img src="../../static/images/face.png">' %}
-                    {% post_to_twitter '¡Me están buscando!' post '<img src="../../static/images/tw.png">' %}
-                    {% post_to_whatsapp post '<img src="../../static/images/whats.png">' %}
-                </div>
-                
+                    </div>
+                {% else %}
+                    <div class="article-content-p2">
+                        <p> {{post.content}} </p>
+                    </div>
+                {% endif %}
             </div>
-
-        </article>
-    </main>
+            {% if user == object.creator %}
+                <div class="article-content-btn">
+                    <a class="btn btn-outline-secondary" href="{% url 'blog-update-post' object.id %}">Update</a>
+                    <a class="btn btn-outline-danger" href="{% url 'blog-delete-post' object.id %}">Delete</a>
+                </div>
+            {% endif %}
+            <div class="social-share">
+                <label for="">¡Share!</label>
+                {% post_to_facebook object_or_url '<img src="../../static/images/face.png">' %}
+                {% post_to_twitter '¡Me están buscando!' post '<img src="../../static/images/tw.png">' %}
+                {% post_to_whatsapp post '<img src="../../static/images/whats.png">' %}
+            </div>                
+        </div>
+    </article>    
 {% endblock %}

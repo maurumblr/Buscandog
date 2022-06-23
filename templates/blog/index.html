@@ -6,7 +6,7 @@
         <article>
             <div class="article-header">
                 <img class="article-header-img" src="{{ post.creator.profile.image.url }}" alt="">
-                <h4 id="article-header-author-account"><a href="{% url 'user-posts' post.creator %}">{{ post.creator.username }}</a></h4>
+                <h4 class="article-header-author-account"><a href="{% url 'user-posts' post.creator %}">{{ post.creator.username }}</a></h4>
                 <p> {{post.date}} </p>
             </div>
             <div class="article-content">

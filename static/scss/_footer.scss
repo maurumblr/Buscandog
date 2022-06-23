@@ -1,0 +1,30 @@
+@use 'var';
+
+footer{
+    grid-column: 1 / -1;
+    background-color: var.$content-title;        
+    margin-top: 10px;    
+    bottom: 0;
+    display: grid;    
+    grid-template-columns: 1fr 5fr 1fr;
+
+    .links{
+        grid-column: 2 / 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    a{
+        margin: 10px;
+    }
+
+    label{
+        grid-column: 3 / 4;
+        color: var.$white-color;
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}         

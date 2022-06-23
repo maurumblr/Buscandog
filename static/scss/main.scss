@@ -1,0 +1,26 @@
+@use 'var';
+@use 'normalize-grid';
+@use 'header';
+@use 'body';
+@use 'footer';
+@use 'responsive';
+
+/* GENERAL */
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marbt10{
+    margin-top: 10px;
+    margin-bottom: 10px;    
+}
+
+.mart20{        
+    margin-top: 20px;
+}
+
+.mar0{
+    margin: 0;
+}
