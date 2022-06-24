@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from PIL import Image
 from django.core.files.storage import default_storage as storage
 
+#User email field unique
+User._meta.get_field('email')._unique = True
+
 
 #User app models
 class Profile(models.Model):
