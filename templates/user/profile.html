@@ -5,14 +5,14 @@
     <div class="marbt10">
         <img class="rounded-circle" src="{{ user.profile.image.url }}">
         <div>
-            <h2 class="article-content-title mar0">{{ user.username }}</h2>
+            <h2 class="article-content-title mar0 ">{{ user.username }}</h2>
             <p class="text-secondary">{{ user.email }}</p>
         </div>
     </div>
     <form method="POST" enctype="multipart/form-data"> <!-- Con este tag estamos guardando las imagenes en el back. -->
         {% csrf_token %}
         <fieldset>
-            <legend class="border-bottom mb-4">Profile Infomation</legend>
+            <legend class="border-bottom mb-4 title">Profile Infomation</legend>
             {{ u_update_form|crispy }}
             {{ p_update_form|crispy }}
         </fieldset>        

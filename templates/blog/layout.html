@@ -6,70 +6,60 @@
 <!-- HEADER -->
 
 {% block body %}
-    <div class="grid-container">
+    <!-- HEADER -->        
+    {% block header %}
+        <header>                
+            <nav class="header-menu">
+                <h1 class="header-title"><img class="nav-logo" src="../../static/images/icono-buscandog.png" alt=""><a class="header-link" href="{% url 'blog-home' %}">BUSCANDOG</a></h1>
+                <ul class="header-menu-items">
+                    <li><a href="{% url 'blog-home' %}">Home</a></li>
+                    <!-- <li><a href="#">About</a></li> -->
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'blog-create-post' %}">New Post</a></li>
+                        <li><a href="{% url 'profile' %}">Profile</a></li>
+                        <li><a class="btn btn-danger" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a class="btn btn-outline-info" href="{% url 'register' %}">Register</a></li>
+                        <li><a class="btn btn-info" href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>        
+                <button class="nav-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </nav>
+        </header>      
+    {% endblock %}  
 
-        <!-- HEADER -->
-        {% block header %}
-            <header>                
-                <nav class="header-menu">
-                    <h1 class="header-title"><img class="nav-logo" src="../../static/images/icono-buscandog.png" alt=""><a class="header-link" href="{% url 'blog-home' %}">BUSCANDOG</a></h1>
-                    <ul class="header-menu-items">
-                        <li><a href="{% url 'blog-home' %}">Home</a></li>
-                        <!-- <li><a href="#">About</a></li> -->
-                        <li><a href="{% url 'about' %}">About</a></li>
-                        {% if user.is_authenticated %}
-                            <li><a href="{% url 'blog-create-post' %}">New Post</a></li>
-                            <li><a href="{% url 'profile' %}">Profile</a></li>
-                            <li><a class="btn btn-danger" href="{% url 'logout' %}">Logout</a></li>
-                        {% else %}
-                            <li><a class="btn btn-outline-info" href="{% url 'register' %}">Register</a></li>
-                            <li><a class="btn btn-info" href="{% url 'login' %}">Login</a></li>
-                        {% endif %}
-                    </ul>        
-                    <button class="nav-toggle">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-                </nav>
-            </header>
-        {% endblock %}
+    <!-- CONTENT -->
+    {% block content %}
+        <main>
+            <!-- BODY -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
-        <!-- CONTENT -->
-        {% block content %}
-            <!-- <aside class="left-aside" >
-                {% block left-aside %} {% endblock %}
-            </aside> -->
+            {% block main %}
+            {% endblock %}
+        </main>        
 
-            <main>
-                <!-- BODY -->
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert alert-{{ message.tags }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
+        <section  class="image-foot">
+            {% block img %} {% endblock %}
+        </section>
+    {% endblock %}     
 
-                {% block main %}
-                {% endblock %}
-            </main>
-            
-            <!-- <aside right-aside>
-                {% block right-aside %} {% endblock %}
-            </aside> -->
-            <section  class="image-foot">
-                {% block img %} {% endblock %}
-            </section>
-        {% endblock %}
-            
-        <!-- FOOTER -->
-        {% block footer %}
-            <footer>
-                <div class="links">
-                    <a href="https://twitter.com/BuscandogAr" target="_blank"><img src="../../static/images/icon-twitter.png" alt=""></a>
-                    <a href="https://www.instagram.com/buscandog.ar/"><img src="../../static/images/icon-instagram.png" alt=""></a>
-                </div>        
-                <label for="">© 2022 Buscandog.</label>
-            </footer>
-        {% endblock %}
-    </div>
+    <!-- FOOTER -->
+    {% block footer %}
+        <footer>
+            <div class="links">
+                <a href="https://twitter.com/BuscandogAr" target="_blank"><img src="../../static/images/icon-twitter.png" alt=""></a>
+                <a href="https://www.instagram.com/buscandog.ar/"><img src="../../static/images/icon-instagram.png" alt=""></a>
+            </div>        
+            <label class="title" for="">© 2022 Buscandog.</label>
+        </footer>
+    {% endblock %}
 {% endblock %}
