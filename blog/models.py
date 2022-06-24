@@ -1,5 +1,3 @@
-from email.policy import default
-from tokenize import blank_re
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
