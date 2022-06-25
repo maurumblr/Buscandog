@@ -173,7 +173,7 @@ article .article-header a:hover {
 }
 article .article-header p {
   margin: 0;
-  display: flex;
+  display: flexbox;
   align-items: flex-start;
   font-size: 15px;
   color: #999999;
@@ -185,19 +185,19 @@ article .article-content {
 article .article-content h2 .article-content-title {
   text-decoration: none;
   color: #282d35;
+  overflow-wrap: break-word;
 }
 article .article-content .contenido {
   display: inline-flex;
   width: 100%;
 }
-article .article-content .contenido .article-content-p1 {
-  display: flex;
-  align-items: flex-start;
+article .article-content .contenido .article-content-p1 {  
   width: 50%;
   border-right: solid 0.5px #cccccc;
   padding-right: 15px;
+  overflow-wrap: break-word;
 }
-article .article-content .contenido .article-content-p1 p {
+article .article-content .contenido .article-content-p1 p{
   color: #5a5a5a;
   font-size: 20px;
 }
@@ -217,12 +217,12 @@ article .article-content .contenido .article-content-img .carousel-inner .carous
   margin-left: 20px;
   border-radius: 3%;
 }
-article .article-content .contenido .article-content-p2 {
-  display: flex;
+article .article-content .contenido .article-content-p2 {  
   align-items: flex-start;
-  width: 100%;
+  width: 100%;  
+  overflow-wrap: break-word;
 }
-article .article-content .contenido .article-content-p2 p {
+article .article-content .contenido .article-content-p2 p{
   color: #5a5a5a;
   font-size: 20px;
 }
@@ -236,18 +236,18 @@ article .article-content .social-share {
   align-items: center;
   margin-top: 15px;
 }
-
+.p{
+  overflow-wrap: break-word;
+}
 .content-paginator {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 24px;
 }
-
 .register-form {
   margin: 20px 0;
 }
-
 .image-foot{
   width: 60%;
 }
@@ -271,8 +271,12 @@ footer .links {
   justify-content: center;
   align-items: center;
 }
+footer .links a img{
+  height: 35px;
+  width: 35px;
+}
 footer a {
-  margin: 10px;
+  margin: 10px;  
 }
 footer label {
   grid-column: 3/4;
